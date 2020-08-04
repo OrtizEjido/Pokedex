@@ -10,5 +10,4 @@ class Pokemon {
     var nombre: String? = null
     var imageUrl: String? = null
 
-
 }
