@@ -5,7 +5,7 @@ import android.os.Bundle
 
 //Proyecto de prueba para sincronizacion con git
 //HeatWave
-//Nieto
+//Nieto es gay
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
