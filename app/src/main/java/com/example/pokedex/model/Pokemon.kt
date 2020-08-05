@@ -22,6 +22,14 @@ class Pokemon {
         var BICHO = "Bicho"
     }
 
+    constructor(id: Int?, nombre: String?, imageUrl: String?, tipo: String?, tipo2: String? = null) {
+        this.id = id
+        this.nombre = nombre
+        this.imageUrl = imageUrl
+        this.tipo = tipo
+        this.tipo2 = tipo2
+    }
+
     var id: Int? = null
     var nombre: String? = null
     var imageUrl: String? = null
