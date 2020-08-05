@@ -17,6 +17,7 @@ import com.example.pokedex.R
 import com.example.pokedex.model.Pokemon
 import kotlinx.android.synthetic.main.item_pokemon.view.*
 
+
 class PokemonAdapter(
     var pkmns: MutableList<Pokemon> = mutableListOf(),
     var listener: OnItemClickListener
@@ -81,13 +82,71 @@ class PokemonAdapter(
         var imgPhoto: ImageView = itemView.imgPhoto
         var tvNombre: TextView = itemView.tvNombre
         var tvNumero: TextView = itemView.tvNumero
+        var ivTipo: ImageView = itemView.ivTipo
+        var ivTipo2: ImageView = itemView.ivTipo2
         var containerMain: RelativeLayout = itemView.containerMain
 
 
 
         fun bind (pokemon: Pokemon){
-            tvNombre.text =pokemon.nombre
-            tvNumero.text = pokemon.id.toString()
+            if (pokemon.imageUrl != null) {
+                var options = RequestOptions()
+                options.diskCacheStrategy(DiskCacheStrategy.ALL)
+                options.centerCrop()
+                options.placeholder(R.drawable.ic_search)
+
+                Glide.with(this.containerMain.context)
+                    .load(pokemon.imageUrl)
+                    .apply(options)
+                    .into(imgPhoto)
+
+                tvNombre.text = pokemon.nombre
+                tvNumero.text = pokemon.idString()
+
+                when(pokemon.tipo){
+                    Pokemon.ACERO -> ivTipo.setImageResource(R.drawable.tipo_acero)
+                    Pokemon.AGUA -> ivTipo.setImageResource(R.drawable.tipo_agua)
+                    Pokemon.BICHO -> ivTipo.setImageResource(R.drawable.tipo_bicho)
+                    Pokemon.DRAGON -> ivTipo.setImageResource(R.drawable.tipo_dragon)
+                    Pokemon.HADA -> ivTipo.setImageResource(R.drawable.tipo_hada)
+                    Pokemon.HIELO -> ivTipo.setImageResource(R.drawable.tipo_hielo)
+                    Pokemon.FUEGO -> ivTipo.setImageResource(R.drawable.tipo_fuego)
+                    Pokemon.NORMAL -> ivTipo.setImageResource(R.drawable.tipo_normal)
+                    Pokemon.LUCHA -> ivTipo.setImageResource(R.drawable.tipo_lucha)
+                    Pokemon.ROCA -> ivTipo.setImageResource(R.drawable.tipo_roca)
+                    Pokemon.TIERRA -> ivTipo.setImageResource(R.drawable.tipo_tierra)
+                    Pokemon.VENENO -> ivTipo.setImageResource(R.drawable.tipo_veneno)
+                    Pokemon.PSIQUICO -> ivTipo.setImageResource(R.drawable.tipo_psiquico)
+                    Pokemon.SINIESTRO -> ivTipo.setImageResource(R.drawable.tipo_siniestro)
+                    Pokemon.FANTASMA -> ivTipo.setImageResource(R.drawable.tipo_fantasma)
+                    Pokemon.ELECTRICO -> ivTipo.setImageResource(R.drawable.tipo_electrico)
+                    Pokemon.PLANTA -> ivTipo.setImageResource(R.drawable.tipo_planta)
+                    Pokemon.VOLADOR -> ivTipo.setImageResource(R.drawable.tipo_volador)
+                }
+
+                when(pokemon.tipo2){
+                    Pokemon.ACERO -> ivTipo2.setImageResource(R.drawable.tipo_acero)
+                    Pokemon.AGUA -> ivTipo2.setImageResource(R.drawable.tipo_agua)
+                    Pokemon.BICHO -> ivTipo2.setImageResource(R.drawable.tipo_bicho)
+                    Pokemon.DRAGON -> ivTipo2.setImageResource(R.drawable.tipo_dragon)
+                    Pokemon.HADA -> ivTipo2.setImageResource(R.drawable.tipo_hada)
+                    Pokemon.HIELO -> ivTipo2.setImageResource(R.drawable.tipo_hielo)
+                    Pokemon.FUEGO -> ivTipo2.setImageResource(R.drawable.tipo_fuego)
+                    Pokemon.NORMAL -> ivTipo2.setImageResource(R.drawable.tipo_normal)
+                    Pokemon.LUCHA -> ivTipo2.setImageResource(R.drawable.tipo_lucha)
+                    Pokemon.ROCA -> ivTipo2.setImageResource(R.drawable.tipo_roca)
+                    Pokemon.TIERRA -> ivTipo2.setImageResource(R.drawable.tipo_tierra)
+                    Pokemon.VENENO -> ivTipo2.setImageResource(R.drawable.tipo_veneno)
+                    Pokemon.PSIQUICO -> ivTipo2.setImageResource(R.drawable.tipo_psiquico)
+                    Pokemon.SINIESTRO -> ivTipo2.setImageResource(R.drawable.tipo_siniestro)
+                    Pokemon.FANTASMA -> ivTipo2.setImageResource(R.drawable.tipo_fantasma)
+                    Pokemon.ELECTRICO -> ivTipo2.setImageResource(R.drawable.tipo_electrico)
+                    Pokemon.PLANTA -> ivTipo2.setImageResource(R.drawable.tipo_planta)
+                    Pokemon.VOLADOR -> ivTipo2.setImageResource(R.drawable.tipo_volador)
+                    else -> ivTipo2.visibility = View.INVISIBLE
+                }
+
+            }
         }
 
         fun setListener(pokemon: Pokemon?, listener: OnItemClickListener) {

@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_listado.*
 //HeatWave
 //Nieto
 class MainActivity : AppCompatActivity(), OnItemClickListener {
-
+//TODO Reconocer si los cambios deben hacerse aqui o en listado
     private var adapter: PokemonAdapter? = null
     private var pkmnViewModel = PkmnViewModel()
     var fragmentManager: FragmentManager = this.supportFragmentManager

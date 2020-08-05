@@ -15,11 +15,12 @@ class Pokemon {
         var HIELO = "Hielo"
         var VENENO = "Veneno"
         var LUCHA = "Lucha"
-        var OSCURO = "Oscuro"
+        var SINIESTRO = "Siniestro"
         var DRAGON = "Dragon"
         var VOLADOR = "Volador"
         var ELECTRICO = "Electrico"
         var BICHO = "Bicho"
+        var PSIQUICO = "Psiquico"
     }
 
     constructor(id: Int?, nombre: String?, imageUrl: String?, tipo: String?, tipo2: String? = null) {
@@ -35,5 +36,11 @@ class Pokemon {
     var imageUrl: String? = null
     var tipo: String? = null
     var tipo2: String? = null
+
+    fun idString(): String {
+        return if (id!!<10) "#00$id"
+        else if (id!!<100)"#0$id"
+        else "#$id"
+    }
 
 }
