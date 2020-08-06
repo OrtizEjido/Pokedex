@@ -32,7 +32,11 @@ class PkmnViewModel: ViewModel() {
             Pokemon.AGUA),
         Pokemon(9, "Blastoise",
             imageByID("009"),
-            Pokemon.AGUA)
+            Pokemon.AGUA),
+        Pokemon(10, "Caterpie",
+            imageByID("010"),
+            Pokemon.BICHO)
+
     )
 
     fun imageByID(id: String): String = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/$id.png"

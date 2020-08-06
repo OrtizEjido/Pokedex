@@ -19,19 +19,10 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
 //TODO Reconocer si los cambios deben hacerse aqui o en listado
     private var adapter: PokemonAdapter? = null
     private var pkmnViewModel = PkmnViewModel()
-    var fragmentManager: FragmentManager = this.supportFragmentManager
-    var fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        configAdapter()
-        configRecyclerView()
-        fragmentManager.beginTransaction()
-        var listadoFragment = ListadoFragment()
-        fragmentTransaction.commit()
-        fragmentTransaction.add(listadoFragment, "alo")
-
     }
 
     fun configAdapter(){
