@@ -32,6 +32,7 @@ class ListadoFragment : Fragment(), OnItemClickListener{
         var view = inflater.inflate(R.layout.fragment_listado, container, false)
         return view
     }
+
     //reescribimos por que necesitamos que se creen las vistas
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -57,12 +58,10 @@ class ListadoFragment : Fragment(), OnItemClickListener{
         if (utils.view == utils.LIST) {
             rvPokemon.layoutManager = LinearLayoutManager(activity)
         } else {
-            rvPokemon.layoutManager = GridLayoutManager(activity, 4)
+            rvPokemon.layoutManager = GridLayoutManager(activity, 5)
         }
         rvPokemon.adapter = adapter
     }
-
-
 
     override fun onItemClick(pokemon: Pokemon?) {
         TODO("Not yet implemented")

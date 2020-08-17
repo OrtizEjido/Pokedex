@@ -107,9 +107,6 @@ class PokemonAdapter(
                 if (utils.view == utils.LIST)   bindTipos(pokemon)
 
 
-
-
-
             }
         }
 

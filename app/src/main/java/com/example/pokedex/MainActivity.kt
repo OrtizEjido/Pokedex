@@ -15,25 +15,14 @@ import kotlinx.android.synthetic.main.fragment_listado.*
 //Proyecto de prueba para sincronizacion con git
 //HeatWave
 //Nieto
+//NewEdit
 class MainActivity : AppCompatActivity(), OnItemClickListener {
 //TODO Reconocer si los cambios deben hacerse aqui o en listado
-    private var adapter: PokemonAdapter? = null
-    private var pkmnViewModel = PkmnViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
-
-    fun configAdapter(){
-        adapter = PokemonAdapter(pkmnViewModel.pkmns, this)
-    }
-
-    private fun configRecyclerView() {
-        rvPokemon.layoutManager = LinearLayoutManager(this)
-        rvPokemon.adapter = adapter
-    }
-
 
     override fun onItemClick(pokemon: Pokemon?) {
         TODO("Not yet implemented")
